@@ -9,7 +9,7 @@ import { mediaQueries } from '../shared/config';
 
 
 const Container = styled.div`
-	background-color: black;
+	background-color: #434445;
 	height: auto;
 	color: white;
 	padding: 60px 0 10px 0;
