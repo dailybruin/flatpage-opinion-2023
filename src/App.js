@@ -14,10 +14,17 @@ function App() {
 		.then(res => setData(res.data['article.aml']))
   }, [])
 
+  const Test = styled.div`
+    height: 5000px;
+  `
+
   return data && (
     <div className="App" style={{ backgroundImage: `url(${background})`}}>
       <Header/>
       Hello Daily Bruin!
+        <Test>
+          this is a test
+        </Test>
       <Footer/>
     </div>
   );
