@@ -1,27 +1,24 @@
 import styled from 'styled-components'
 import { mediaQueries } from '../shared/config';
-import Starship from "../images/starship.svg"
+import StarshipLeft from "../images/starshipLeft.svg";
+import StarshipRight from "../images/starshipRight.svg";
 import Strawberry from "../images/strawberry.png"
-
-// import IG from "../images/socials/insta.svg"
-// import DailyBruinLogo from "../image/DailyBruinLogo.svg"
 
 const Container = styled.div`
     height: 800px;
     width: 800px;
     position: relative;
     font-family: 'Montserrat', sans-serif;
-
-
 `
+
 const Background = styled.img`
     height: 656px;
     width: 436px;
     position: absolute;
     top: 0;
     left: 0;
-
 `
+
 const ArticleInfo = styled.div`
     border: 2px red;
     position: absolute;
@@ -29,54 +26,52 @@ const ArticleInfo = styled.div`
     height: 180px;
     left: 4em;
     top: 18em;
-
 `
+
 const Image = styled.img`
     width: 60%;
-    border: 2px red;
     position: absolute;
     top: 0;
     right: 1em;
-
 `
 
 const Title = styled.div`
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
-    margin-left: auto;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
     margin-right: auto;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 20px;
-
-
 `
 
-const Credit = styled.div`
+const Byline = styled.div`
     position: absolute;
     width: 30%;
-    left: 1em;
-    font-weight: 500;
+    left: 0.5em;
     bottom: 5em;
+    font-weight: 500;
 `
 
-const PhotoCredit = styled.div`
+const PhotoCred = styled.div`
     position: absolute;
     width: 30%;
-    left: 1em;
-    font-weight: 500;
+    left: 0.5em;
     bottom: 2em;
+    font-weight: 500;
 `
-export default function ArticleCard(props){
+
+export default function ArticleCard(props) {
     return (
         <Container>
-            <Background src = {Starship}/>
+            <Background src={StarshipLeft} />
             <ArticleInfo>
                 <Image src = {Strawberry} />
+                <Byline> By: Joe Bruin </Byline>
+                <PhotoCred> Photo By: Joe Bruin </PhotoCred>
                 <Title> ARTICLE TITLE </Title>
-                <Credit> By: Joe Bruin </Credit>
-                <PhotoCredit> Photo By: Joe Bruin </PhotoCredit>
             </ArticleInfo>
         </Container>
     )
