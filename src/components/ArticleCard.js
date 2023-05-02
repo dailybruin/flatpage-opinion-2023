@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { mediaQueries } from '../shared/config';
-import Starship from "../images/starship.svg";
+import StarshipLeft from "../images/starshipLeft.svg";
+import StarshipRight from "../images/starshipRight.svg";
 import Strawberry from "../images/strawberry.png"
 
 const Container = styled.div`
@@ -65,7 +66,7 @@ const PhotoCred = styled.div`
 export default function ArticleCard(props) {
     return (
         <Container>
-            <Background src={Starship} />
+            <Background src={StarshipLeft} />
             <ArticleInfo>
                 <Image src = {Strawberry} />
                 <Byline> By: Joe Bruin </Byline>
