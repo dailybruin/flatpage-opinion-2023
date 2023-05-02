@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import background from './images/background.svg'
+import ArticleGrid from "./components/ArticleGrid";
 
 function App() {
   const [ data, setData ] = useState(null);
@@ -22,9 +23,7 @@ function App() {
     <div className="App" style={{ backgroundImage: `url(${background})`}}>
       <Header/>
       Hello Daily Bruin!
-        <Test>
-          this is a test
-        </Test>
+        <ArticleGrid articles={data.stories}/>
       <Footer/>
     </div>
   );
