@@ -44,6 +44,7 @@ const ArticleGrid = ({articles}) => {
                                 article_byline={item.article_byline}
                                 article_image={item.article_image}
                                 article_url={item.article_url}
+                                article_float={item.article_float}
                             />
                         </div>
                         )
@@ -55,6 +56,7 @@ const ArticleGrid = ({articles}) => {
                             article_byline={item.article_byline}
                             article_image={item.article_image}
                             article_url={item.article_url}
+                            article_float={item.article_float}
                         />
                     </Caboose>
                     )

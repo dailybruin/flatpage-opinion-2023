@@ -51,7 +51,7 @@ const Byline = styled.div`
     position: absolute;
     width: 30%;
     left: 0.5em;
-    bottom: 5em;
+    bottom: 7em;
     font-weight: 500;
 `
 
@@ -59,19 +59,24 @@ const PhotoCred = styled.div`
     position: absolute;
     width: 30%;
     left: 0.5em;
-    bottom: 2em;
+    bottom: 4em;
     font-weight: 500;
 `
 
 export default function ArticleCard(props) {
     return (
         <Container>
-            <Background src={StarshipLeft} />
+            {props.article_float === "left" && (
+                <Background src={StarshipLeft} />
+            )}
+            {props.article_float === "right" && (
+                <Background src={StarshipRight} />
+            )}
             <ArticleInfo>
-                <Image src = {Strawberry} />
-                <Byline> By: Joe Bruin </Byline>
-                <PhotoCred> Photo By: Joe Bruin </PhotoCred>
-                <Title> ARTICLE TITLE </Title>
+                <Image src = {props.article_image} />
+                <Byline> By: {props.article_byline} </Byline>
+                <PhotoCred> Photo By: {props.article_img_credit} </PhotoCred>
+                <Title> {props.article_title} </Title>
             </ArticleInfo>
         </Container>
     )
