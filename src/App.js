@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import styled from 'styled-components';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ArticleGrid from './components/ArticleGrid';
+import background from './images/background.svg'
 
 function App() {
   const [ data, setData ] = useState(null);
@@ -14,9 +15,9 @@ function App() {
   }, [])
 
   return data && (
-    <div className="App">
+    <div className="App" style={{ backgroundImage: `url(${background})`}}>
       <Header/>
-      Hello Daily Bruin!
+      <ArticleGrid stories={data.stories}/>
       <Footer/>
     </div>
   );
