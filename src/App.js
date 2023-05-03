@@ -26,7 +26,6 @@ function App() {
   return data && (
     <div className="App" style={{ backgroundImage: `url(${background})`}}>
       <Header/>
-      Hello Daily Bruin!
         <Landing
           landing_image={data.landing_image}
           landing_image_static={data.landing_image_static}
