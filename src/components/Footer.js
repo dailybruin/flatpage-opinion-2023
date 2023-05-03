@@ -3,13 +3,14 @@ import insta from '../images/socials/insta.svg'
 import twitter from '../images/socials/twitter.svg'
 import tiktok from '../images/socials/tiktok.svg'
 import email from '../images/socials/email.svg'
+import campus from '../images/campus.svg'
 
 import styled from 'styled-components'
 import { mediaQueries } from '../shared/config';
 
 
 const Container = styled.div`
-	background-color: black;
+	background-color: #505050;
 	height: auto;
 	color: white;
 	padding: 60px 0 10px 0;
@@ -23,7 +24,7 @@ const Container = styled.div`
 `
 
 const Socials = styled.div`
-    position: relative;
+  position: relative;
 	margin-top: 20px;
   
 	img {
@@ -39,10 +40,19 @@ const Socials = styled.div`
 		}
 	}
 `
+const Campus = styled.div`
+  position: relative;
+  left: 10%;
+  bottom: -13px;
+`
 
 const Footer = () => {
     return (
-        <Container>
+    <div>
+      <Campus>
+        <img src={campus} width="60%" position="20px"></img>
+      </Campus>
+      <Container>
         <h1>DAILY BRUIN</h1>
         <Socials>
           <a href="https://www.instagram.com/dailybruin" target="_blank"><img src={insta}/></a>
@@ -50,9 +60,10 @@ const Footer = () => {
           <a href="https://www.twitter.com/dailybruin" target="_blank"><img src={twitter}/></a>
           <a href="https://www.tiktok.com/@dailybruin" target="_blank"><img src={tiktok}/></a>
           <a href="http://eepurl.com/cFEiZX" target="_blank"><img src={email}/></a>
-          <p>Built with Suzy’s ♥ in Kerckhoff 118 by [developers]. Designed by [designers].</p>
+          <p>Built with Suzy’s ♥ in Kerckhoff 118 by Nicole Ju, Sujay Jain, Elaine Lin, Ed Nawrocki, Donny Rimer, Richelle Shim, Angela Tan, Erika Tran, Sakshi Thoutireddy, Yifan Tang, Bryson Xiao, and Tracy Zhao. Designed by Lindsey Murto and Trisha Patel.</p>
         </Socials>
-    </Container>
+      </Container>
+    </div>
     )
   }
   
