@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import background from './images/background.svg'
+import ArticleCard from "./components/ArticleCard";
 
 function App() {
   const [ data, setData ] = useState(null);

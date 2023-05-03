@@ -11,13 +11,6 @@ const Container = styled.div`
     font-family: 'Montserrat', sans-serif;
 `
 
-const Background = styled.img`
-    height: 656px;
-    width: 436px;
-    position: absolute;
-    top: 0;
-    left: 0;
-`
 
 const ArticleInfo = styled.div`
     border: 2px red;
@@ -28,12 +21,6 @@ const ArticleInfo = styled.div`
     top: 18em;
 `
 
-const Image = styled.img`
-    width: 60%;
-    position: absolute;
-    top: 0;
-    right: 1em;
-`
 
 const Title = styled.div`
     position: absolute;
@@ -47,31 +34,65 @@ const Title = styled.div`
     font-size: 20px;
 `
 
-const Byline = styled.div`
-    position: absolute;
-    width: 30%;
-    left: 0.5em;
-    bottom: 5em;
-    font-weight: 500;
-`
 
-const PhotoCred = styled.div`
-    position: absolute;
-    width: 30%;
-    left: 0.5em;
-    bottom: 2em;
-    font-weight: 500;
-`
 
 export default function ArticleCard(props) {
+    function getPhotoPlacement(article_float){
+        if (article_float == "left"){return ("1em")}
+        else if  (article_float == "right"){return ("6em")}
+    }
+    
+    function getBackground(article_float) {
+        if (article_float == "left"){return (StarshipLeft)}
+        else if  (article_float == "right") {return (StarshipRight)}
+    }
+
+    function getByline(article_float){
+        if (article_float == "left"){return ("0.5em")}
+        else if  (article_float == "right"){return ("12em")}
+    }
+
+    function getPhotoCred(article_float){
+        if (article_float == "left"){return ("0.5em")}
+        else if  (article_float == "right"){return ("12.6em")}
+    }
+
+    const Background = styled.img`
+        height: 656px;
+        width: 436px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    `
+    const Image = styled.img`
+        width: 60%;
+        position: absolute;
+        top: 0;
+        right: #${getPhotoPlacement(props.article_float)};
+    `
+    const Byline = styled.div`
+        position: absolute;
+        width: 30%;
+        left: #${getByline(props.article_float)};
+        bottom: 5em;
+        font-weight: 500;
+    `
+
+    const PhotoCred = styled.div`
+        position: absolute;
+        width: 30%;
+        left: #${getPhotoCred(props.article_float)};
+        bottom: 2em;
+        font-weight: 500;
+    `
     return (
         <Container>
-            <Background src={StarshipLeft} />
+            <Background src={getBackground(props.article_float)} />
             <ArticleInfo>
-                <Image src = {Strawberry} />
-                <Byline> By: Joe Bruin </Byline>
-                <PhotoCred> Photo By: Joe Bruin </PhotoCred>
-                <Title> ARTICLE TITLE </Title>
+                <Image src = {props.article_image} />
+                <Byline> By: {props.article_byline} </Byline>
+                <PhotoCred> Photo By: {props.article_img_credit} </PhotoCred>
+                <Title href={props.article_url}>{props.article_title} </Title>
             </ArticleInfo>
         </Container>
     )
