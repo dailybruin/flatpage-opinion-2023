@@ -29,7 +29,7 @@ const Grid = styled.div`
         width: 60%;
         flex-direction: column;
         justify-items: center;
-        margin-left: 15vw;
+        margin-left: 1vw;
     }
 `
 
