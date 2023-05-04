@@ -11,6 +11,8 @@ const Container = styled.div`
     font-family: 'Montserrat', sans-serif;
     position: relative;
     left: 0;
+    color: black;
+    text-decoration: none;
 `
 
 const Background = styled.img`
@@ -29,6 +31,8 @@ const ArticleInfo = styled.div`
     height: 180px;
     left: 4em;
     top: 18em;
+    color: black;
+    text-decoration: none;
 `
 
 const Image = styled.img`
@@ -39,23 +43,29 @@ const Image = styled.img`
     right: 1em;
 `
 
-const Title = styled.div`
+const Title = styled.a`
     position: absolute;
-    bottom: 0;
-    left: 0; 
+    bottom: -0.5em;
+    left: 0.4em; 
     right: 0; 
     margin-left: auto; 
     margin-right: auto;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 20px;
+    text-decoration: none;
+    color: inherit;
+
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 1em;
+    padding: 0.1em;
 `
 
 const Byline = styled.div`
     position: absolute;
     width: 30%;
     left: 0.5em;
-    bottom: 5em;
+    top: 2em;
     font-weight: 500;
 `
 
@@ -76,12 +86,14 @@ export default function ArticleCard(props) {
             {props.article_float === "right" && (
                 <Background src={StarshipLeft} />
             )}
-            <ArticleInfo>
-                <Image src = {props.article_image} />
-                <Byline> By: {props.article_byline} </Byline>
-                {/* <PhotoCred> Photo By: {props.article_img_credit} </PhotoCred> */}
-                <Title> {props.article_title} </Title>
-            </ArticleInfo>
+            <a href={props.article_url}>
+                <ArticleInfo>
+                    <Image src = {props.article_image} />
+                    <Byline> By: {props.article_byline} </Byline>
+                    {/* <PhotoCred> Photo By: {props.article_img_credit} </PhotoCred> */}
+                    <Title href={props.article_url}> {props.article_title} </Title>
+                </ArticleInfo>
+            </a>
         </Container>
     )
 }
