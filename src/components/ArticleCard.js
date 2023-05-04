@@ -2,21 +2,24 @@ import styled from 'styled-components'
 import { mediaQueries } from '../shared/config';
 import StarshipLeft from "../images/starshipLeft.svg";
 import StarshipRight from "../images/starshipRight.svg";
-import Strawberry from "../images/strawberry.png"
 
 const Container = styled.div`
-    height: 800px;
-    width: 800px;
+    height: 660px;
+    width: 600px;
+    max-width: 100vw;
     position: relative;
     font-family: 'Montserrat', sans-serif;
+    position: relative;
+    left: 0;
 `
 
 const Background = styled.img`
     height: 656px;
     width: 436px;
+    max-width: 100vw;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0em;
 `
 
 const ArticleInfo = styled.div`
@@ -30,6 +33,7 @@ const ArticleInfo = styled.div`
 
 const Image = styled.img`
     width: 60%;
+    /* max-width: 100%; */
     position: absolute;
     top: 0;
     right: 1em;
@@ -51,7 +55,7 @@ const Byline = styled.div`
     position: absolute;
     width: 30%;
     left: 0.5em;
-    bottom: 7em;
+    bottom: 5em;
     font-weight: 500;
 `
 
@@ -67,15 +71,15 @@ export default function ArticleCard(props) {
     return (
         <Container>
             {props.article_float === "left" && (
-                <Background src={StarshipLeft} />
+                <Background src={StarshipRight} />
             )}
             {props.article_float === "right" && (
-                <Background src={StarshipRight} />
+                <Background src={StarshipLeft} />
             )}
             <ArticleInfo>
                 <Image src = {props.article_image} />
                 <Byline> By: {props.article_byline} </Byline>
-                <PhotoCred> Photo By: {props.article_img_credit} </PhotoCred>
+                {/* <PhotoCred> Photo By: {props.article_img_credit} </PhotoCred> */}
                 <Title> {props.article_title} </Title>
             </ArticleInfo>
         </Container>

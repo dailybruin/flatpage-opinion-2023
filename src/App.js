@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import styled from 'styled-components';
 import './App.css';
 import Header from './components/Header';
@@ -19,8 +18,8 @@ function App() {
       .then((res) => setData(res.data["article.aml"]));
   }, []);
 
-  const Test = styled.div`
-    height: 5000px;
+  const Container = styled.div`
+    background-image: url(${background});
   `
 
   return data && (
@@ -39,3 +38,4 @@ function App() {
 }
 
 export default App;
+

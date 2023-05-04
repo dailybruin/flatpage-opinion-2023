@@ -11,6 +11,7 @@ import { mediaQueries } from '../shared/config';
 
 const Container = styled.div`
 	background-color: #505050;
+  position: relative;
 	height: auto;
 	color: white;
 	padding: 60px 0 10px 0;
@@ -41,17 +42,29 @@ const Socials = styled.div`
 	}
 `
 const Campus = styled.div`
-  position: relative;
+  /* position: absolute;
   left: 10%;
-  bottom: -13px;
+  overflow-x: hidden;
+  bottom: 10em; */
+  position: relative;
+  /* left: 10%; */
+  bottom: -1em;
+
+  ${mediaQueries.mobile} {
+    bottom: -0.5em;
+    width: 100%;
+    img {
+      width: 80%;
+    }
+  }
 `
 
 const Footer = () => {
     return (
     <div>
       <Campus>
-        <img src={campus} width="60%" position="20px"></img>
-      </Campus>
+          <img src={campus} width="60%" position="20px"></img>
+        </Campus>
       <Container>
         <h1>DAILY BRUIN</h1>
         <Socials>
