@@ -1,7 +1,19 @@
-import React, { useCallback, useState, useRef } from "react";
-import LandingImage from "./landingImage";
+import React from "react";
 import styled from "styled-components";
 import { mediaQueries } from "../shared/config";
+
+const Container = styled.div`
+  width: 100vw;
+  height: fit-content;
+  position: relative;
+  background: #D9D9D9;
+`;
+
+const Illo = styled.img`
+  width: 100vw;
+  height: auto;
+  object-fit: cover;
+`;
 
 const Credits = styled.div`
   float: right;
@@ -15,35 +27,13 @@ const Credits = styled.div`
   }
 `;
 
-const Landing = (props) => {
-  let landingGif = props.landing_image;
-  let landingStatic = props.landing_image_static;
-  let landingCredits = props.landing_credits;
+export default function Landing(props) {
+    return (
+      <Container>
+        <Illo src={props.landing_image}></Illo>
+        <Credits>{props.landing_credits}</Credits>
+      </Container>
+    );
+  }
 
-  const gifEndRef = useRef(null);
-  const [firstTime, setFirstTime] = useState(true);
 
-  const scroller = useCallback(() => {
-    setTimeout(() => {
-      if (gifEndRef && gifEndRef.current) {
-        gifEndRef.current.scrollIntoView({ behavior: "smooth" });
-        setFirstTime(false);
-      }
-    }, 4000);
-  }, [gifEndRef]);
-
-  return (
-    <>
-      {firstTime ? (
-        <LandingImage image={landingGif} />
-      ) : (
-        <LandingImage image={landingStatic} />
-      )}
-      <div ref={gifEndRef}></div>
-      {firstTime ? scroller() : null}
-      <Credits>{landingCredits}</Credits>
-    </>
-  );
-};
-
-export default Landing;
